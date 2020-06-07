@@ -1,0 +1,20 @@
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: true
+ribbon:
+  eureka:
+    enabled: false
+server:
+  port: 8083
+zuul:
+  routes:
+    user:
+      path: /demo/**
+      url: http://localhost:8080/demo
+      serviceId: DEMO
+      strip-prefix: true
